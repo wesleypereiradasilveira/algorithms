@@ -39,8 +39,13 @@ def binary_trees():
     root.insert("h")
     root.insert("j")
     root.insert("k")
-    print(root.left.__dict__)
-    print(root.right.__dict__)
+
+    print("\nIn Order")
+    root.in_order(root)
+    print("\nPre Order")
+    root.pre_order(root)
+    print("\nPost Order")
+    root.post_order(root)
 
 if __name__ == "__main__":
     # sortings()

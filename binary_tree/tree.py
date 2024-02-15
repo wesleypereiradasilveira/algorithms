@@ -21,6 +21,21 @@ class Node:
                 else:
                     self.right.insert(data)
 
+    def in_order(self, root):
+        if root is not None:
+            self.in_order(root.left)
+            print(root.data, end=" ")
+            self.in_order(root.right)
 
+    def pre_order(self, root):
+        if root is not None:
+            print(root.data, end=" ")
+            self.pre_order(root.left)
+            self.pre_order(root.right)
 
+    def post_order(self, root):
+        if root is not None:
+            print(root.data, end=" ")
+            self.post_order(root.right)
+            self.post_order(root.left)
 
