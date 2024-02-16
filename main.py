@@ -18,7 +18,7 @@ def sortings():
     start = perf_counter()
 
     # rprint(f"[green bold]bubble sort[/green bold]: {bubble_sort(values)}")
-    # rprint(f"[green bold]bubble sort[/green bold]: {bubble_sort_v2(values)}")
+    rprint(f"[green bold]bubble sort[/green bold]: {bubble_sort_v2(values)}")
     # rprint(f"[green bold]selection sort[/green bold]: {selection_sort_v2(values)}")
     # rprint(f"[green bold]selection sort[/green bold]: {selection_sort(values)}")
     # rprint(f"[green bold]selection sort[/green bold]: {insertion_sort(values)}")
@@ -28,6 +28,12 @@ def sortings():
     rprint(f"Elapsed time: {(stop - start):.6f}")
 
 def binary_trees():
+    """
+                    g
+            c               i
+        b       e       h       j
+    a       d       f               k
+    """
     root = Node("g")
     root.insert("c")
     root.insert("b")
@@ -40,12 +46,17 @@ def binary_trees():
     root.insert("j")
     root.insert("k")
 
-    print("\nIn Order")
-    root.in_order(root)
-    print("\nPre Order")
-    root.pre_order(root)
-    print("\nPost Order")
-    root.post_order(root)
+    # print("In Order")
+    # root.in_order(root)
+
+    # print("Pre Order")
+    # root.pre_order(root)
+
+    # print("Post Order")
+    # root.post_order(root)
+
+    d = root.adjancent_list(root)
+    root.breadth_first_search(d)
 
 if __name__ == "__main__":
     # sortings()
