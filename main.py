@@ -56,7 +56,10 @@ def binary_trees():
     # root.post_order(root)
 
     d = root.adjancent_list(root)
-    root.breadth_first_search(d)
+
+    # root.breadth_first_search(d)
+    # root.depth_first_search(d)
+    print(root.search_key(d, "f"))
 
 if __name__ == "__main__":
     # sortings()

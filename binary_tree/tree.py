@@ -7,7 +7,7 @@ class Node:
         self.right = None
         self.data = data
 
-    def insert(self, data):
+    def insert(self, data) -> None:
         if self.data is None:
             self.data = data
         else:
@@ -22,25 +22,25 @@ class Node:
                 else:
                     self.right.insert(data)
 
-    def in_order(self, root):
+    def in_order(self, root) -> None:
         if root is not None:
             self.in_order(root.left)
             print(root.data, end=" ")
             self.in_order(root.right)
 
-    def pre_order(self, root):
+    def pre_order(self, root) -> None:
         if root is not None:
             print(root.data, end=" ")
             self.pre_order(root.left)
             self.pre_order(root.right)
 
-    def post_order(self, root):
+    def post_order(self, root) -> None:
         if root is not None:
             print(root.data, end=" ")
             self.post_order(root.right)
             self.post_order(root.left)
 
-    def adjancent_list(self, root, d: dict = {}):
+    def adjancent_list(self, root, d: dict = {}) -> dict:
         if root is not None:
             d[root.data] = []
             self.adjancent_list(root.left, d)
@@ -55,7 +55,7 @@ class Node:
         
         return d
     
-    def breadth_first_search(self, adjancent_list: dict):
+    def breadth_first_search(self, adjancent_list: dict) -> None:
         queue = deque("g")
         visited = []
 
@@ -66,3 +66,33 @@ class Node:
 
         print(visited)
 
+    def depth_first_search(self, adjancent_list: dict) -> None:
+        stack = ["g"]
+        visited = []
+
+        print(stack)
+
+        while stack:
+            node = stack.pop()
+
+            if node not in visited:
+                visited.append(node)
+                [stack.append(x) for x in adjancent_list[node]]
+
+        print(visited)
+
+    def search_key(self, adjancent_list: dict, key: str) -> bool:
+        stack = ["g"]
+        visited = []
+
+        while stack:
+            node = stack.pop()
+
+            if node == key:
+                return True
+
+            if node not in visited:
+                visited.append(node)
+                [stack.append(x) for x in adjancent_list[node]]
+
+        return False
